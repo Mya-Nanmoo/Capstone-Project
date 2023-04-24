@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition template="/WEB-INF/templates/provisio-template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<ui:define name="title">Provisio - Login</ui:define>
+
+	<ui:define name="content">
+		<div class="container">
+			<h:panelGroup rendered="#{loginBean.customer.customerId == null}">
+				<h:form id="loginForm">
+					<table frame="box" style="padding: 20px;">
+						<tr>
+							<th><h2 style="color: #623e2a;">Login</h2></th>
+						</tr>
+						<tr>
+							<td><h:outputText value="Email" /></td>
+							<td><h:inputText id="inputEmail"
+									value="#{loginBean.customer.email}" required="true"
+									title="Your email is required" /></td>
+						</tr>
+						<tr>
+							<td><h:outputText value="Password" /></td>
+							<td><h:inputSecret id="inputPassword"
+									value="#{loginBean.customer.password}" required="true"
+									title="Your password is required" /></td>
+						</tr>
+						<tr>
+							<td colspan='2' height='50'><h:commandButton value="Log In"
+									action="#{loginBean.login}"
+									style="color:black; height: 30px; width:300px; margin-top:20px;" /></td>
+						</tr>
+						<tr>
+							<td colspan='2' height='50'><h:outputText
+									value="Not a User: " /> <h:outputLink value="register.xhtml">Register for an Account</h:outputLink></td>
+						</tr>
+					</table>
+				</h:form>
+			</h:panelGroup>
+			<h:panelGroup rendered="#{loginBean.customer.customerId != null}">
+				<h1>Welcome #{loginBean.customer.firstName}</h1>
+				<h:form>
+					<p>
+						<h:commandLink value="logout" action="#{loginBean.logout}" />
+					</p>
+				</h:form>
+			</h:panelGroup>
+		</div>
+	</ui:define>
+</ui:composition>

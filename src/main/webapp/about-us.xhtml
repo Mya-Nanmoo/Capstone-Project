@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition template="/WEB-INF/templates/provisio-template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<ui:define name="title">Provisio - About Us</ui:define>
+
+	<ui:define name="content">
+
+		<link rel="stylesheet" href="css/aboutus.css" />
+		<main>
+				<h1 class="heading">About Us</h1>
+
+				<div class="about-us-content">
+					<div class="about-us-summary">
+						<h2>Welcome to your luxurious home away from home</h2>
+						<br></br>
+						<p style="text-align: left; font-size: 14pt;">Allow us to
+							provide you with affordable hotel accommodations and top-notch
+							service for your getaways. We pride ourselves in providing
+							excellent service, so you can relax and enjoy your stay. We offer
+							hotel accommodations for a number of locations to give you a
+							diverse set of destinations. Plus earn rewards for each stay at
+							any of our locations through our free loyalty program</p>
+						<br></br>
+						<p class="book-now-button" style="text-align:center;">
+							<h:button value="Book now" styleClass="button" outcome="booking" rendered="#{loginBean.customer.customerId !=null}"></h:button>
+                                                        <h:button value="Login to Book" styleClass="button" outcome="login" rendered="#{loginBean.customer.customerId ==null}"></h:button>
+						</p>
+					</div>
+
+					<div class ="about-us-img" style="text-align: center;">
+						<img src="images/About.jpg" alt="about image" />
+					</div>
+				</div>
+		</main>
+	</ui:define>
+</ui:composition>
